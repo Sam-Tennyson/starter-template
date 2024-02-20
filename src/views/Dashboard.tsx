@@ -1,9 +1,8 @@
 import React from "react";
-import { getDataFromLocalStorage } from "../shared/Utilies";
 import { useGlobalStore } from "../zustandStore/store";
 
 const Dashboard: React.FC = () => {
-  const { setToken, token, userData } = useGlobalStore();
+  const { setToken, token } = useGlobalStore();
   const data = {
     token: "123",
     userData: {
@@ -11,8 +10,6 @@ const Dashboard: React.FC = () => {
     },
   };
   const toggle = () => {
-    const { state } = getDataFromLocalStorage();
-    console.log(state, token, userData);
     if (token) {
       setToken("");
       return;
